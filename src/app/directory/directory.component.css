@@ -1,0 +1,21 @@
+.person_list{
+    list-style: none;
+}
+.each_person{
+    transition: 0.5s;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+.each_person h3{
+    display: inline-block;
+}
+.each_person>div{
+    padding-left: 0;
+}
+.color{
+    color: white;
+    padding-left: 5px;
+}
+.each_person:hover{
+    background-color: #ddd;
+}
