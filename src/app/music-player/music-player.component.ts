@@ -36,7 +36,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
   };
   constructor(private _dataService: DataService, private _broadcaster: Broadcaster) {
     this.song_info_arr = [];
-    this.click_animation = [false, false, false];
+    this.click_animation = [false, false, false, false];
     this.cover_rotate = true;
     this.toogle_play = true;
     this.is_stop = false;
@@ -46,7 +46,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.slideIn = true;
-    let fade = {
+    const fade = {
       image_id: '929547',
       song_id: '101800569',
       name: 'Fade',
@@ -61,7 +61,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
             this.playControll('pause');
             break;
           case 'out':
-            this.play_state == 'play' && this.playControll('play');
+            this.play_state === 'play' && this.playControll('play');
             break;
         }
       });
@@ -69,14 +69,20 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
   }
+  download(event): void {
+    this.click_animation[3] = true;
+    event.target.addEventListener('webkitAnimationEnd', () => {
+      this.click_animation[3] = false;
+    });
+  }
   /* 搜索音乐 */
   searchMusic(name: string, e) {
     let doSearch = () => {
       let song_info_arr = [];
       if (name) {
-        this.search_box_obj['index'] && (this.search_box_obj['index'] = null);
         this._dataService.searchMusic(5, name).subscribe(
           data => {
+            this.search_box_obj['index'] = null;
             let song_arr = data.data.song.list;
             song_arr.forEach(element => {
               let song_obj = {};
@@ -103,6 +109,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
     this.name = song_info['name'];
     this.artist = song_info['artist'];
     this.album = song_info['album'];
+    console.log(this.song_url);
   }
   /* 播放控制 */
   playControll(type, event?) {

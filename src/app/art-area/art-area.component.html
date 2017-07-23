@@ -1,11 +1,12 @@
-<div *ngFor="let article of articles;let i = index">
+<div *ngFor="let article of articles | async;let i = index">
   <p>
-    <button type="button" class="btn btn-outline-primary" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]"
+    <!-- <button type="button" class="btn btn-outline-primary" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]"
             [attr.aria-expanded]="!is_collapsed_arr[i]" aria-controls="collapse">
       {{article.title}}
-    </button>
+    </button> -->
+    <a href="javascript:void(0);" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]" [attr.aria-expanded]="!is_collapsed_arr[i]" aria-controls="collapse">{{article.title}}</a>
   </p>
-  <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]">
+  <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12">
     <div class="card">
       <div class="card-block">
         {{article.content}}

@@ -1,5 +1,5 @@
 <div>
-  <div style="position: fixed;" class="animated" [ngClass]="{'slideInLeft': slideIn, 'slideOutLeft': slideOut}">
+  <div style="position: fixed;z-index: 99;" class="animated" [ngClass]="{'slideInLeft': slideIn, 'slideOutLeft': slideOut}">
     <audio loop autoplay #audio>
       <source [src]="song_url" type="audio/mp3">
     </audio>
@@ -7,9 +7,10 @@
       <img [ngClass]="{'cover': true, 'cover-rotate-running': cover_rotate && !is_stop, 'cover-rotate-pause': !cover_rotate && !is_stop}" [src]="image_url" [alt]="name">
       <span [ngClass]="{'click-animation': click_animation[0]}" (click)="playControll('play', $event)" *ngIf="!toogle_play" class="glyphicon glyphicon-play player-btn"></span>
       <span [ngClass]="{'click-animation': click_animation[0]}" (click)="playControll('pause', $event)" *ngIf="toogle_play" class="glyphicon glyphicon-pause player-btn"></span>
-      <span [ngClass]="{'click-animation': click_animation[1]}" (click)="playControll('stop', $event)" class="glyphicon glyphicon-stop player-btn" style="cursor: pointer;"></span>
+      <span [ngClass]="{'click-animation': click_animation[1]}" (click)="playControll('stop', $event)" class="glyphicon glyphicon-stop player-btn"></span>
       <marquee class="music-info" scrollamount=2 onmouseover="this.stop()" onmouseout="this.start()">{{name}}-{{artist}}</marquee>
-      <span [ngClass]="{'click-animation': click_animation[2], 'active': search_box_obj.active}" (click)="clickSearch($event)" class="glyphicon glyphicon-search player-btn" style="cursor: pointer;"></span>
+      <span [ngClass]="{'click-animation': click_animation[2], 'active': search_box_obj.active}" (click)="clickSearch($event)" class="glyphicon glyphicon-search player-btn"></span>
+      <a [href]="song_url" download style="color: #ddd;"><span [ngClass]="{'click-animation': click_animation[3]}" (click)="download($event)" class="glyphicon glyphicon-download-alt"></span></a>      
       &nbsp;<span class="glyphicon glyphicon-remove" (click)="tooglePlayer('player_slide_out')"></span>
     </div>
     <div class="search-box animated" [ngClass]="{'fadeInDown': search_box_obj.fadeInDown}" *ngIf="search_box_obj.show">
@@ -26,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div class="mini-player animated" [ngClass]="{'slideInLeft': slideOut, 'slideOutLeft': slideIn}" style="position: fixed;cursor: pointer;" (click)="tooglePlayer('mini_slide_out')">
+  <div class="mini-player animated" [ngClass]="{'slideInLeft': slideOut, 'slideOutLeft': slideIn}" style="position: fixed;cursor: pointer;z-index: 99;" (click)="tooglePlayer('mini_slide_out')">
     <span class="glyphicon glyphicon-headphones"></span>
   </div>
 </div>

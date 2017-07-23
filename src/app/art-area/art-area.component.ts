@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { MyDataService } from '../services/my-data.service';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-art-area',
   templateUrl: './art-area.component.html',
   styleUrls: ['./art-area.component.css'],
-  providers: [MyDataService],
+  providers: [],
 })
+
 export class ArtAreaComponent implements OnInit {
-  articles: any;
   public is_collapsed_arr = [];
-  constructor(private _myDataService: MyDataService) { }
+  articles: FirebaseListObservable<any[]>;
+  item: FirebaseObjectObservable<any>;
+  constructor(db: AngularFireDatabase) {
+    this.articles = db.list('/artarticle');
+    this.articles.subscribe(snapshot => {
+      snapshot.forEach(ele => {
+        this.is_collapsed_arr.push(true);
+      });
+    });
+    this.item = db.object('/techarticle');
+  }
 
   ngOnInit() {
-    this.getArticle('art');
+    
   }
-  /* 获取文章数据 */
-  getArticle(type) {
-    this._myDataService.getArticleData(type).subscribe(res => {
-      if (res['status'] == 200) {
-        this.articles = res['data'];
-        this.articles.forEach(item => {
-          this.is_collapsed_arr.push(true);
-        });
-      }
-    });
+
+  save(newName: string) {
+    this.item.set({ name: newName });
+  }
+  update(newSize: string) {
+    this.item.update({ size: newSize });
+  }
+  delete() {
+    this.item.remove();
   }
 
 }
