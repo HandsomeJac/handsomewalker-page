@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Broadcaster } from '../shared/broadcaster.service';
+import { MyDataService } from '../services/my-data.service';
 
 @Component({
   selector: 'app-art-area',
@@ -9,31 +10,15 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 })
 
 export class ArtAreaComponent implements OnInit {
-  public is_collapsed_arr = [];
-  articles: FirebaseListObservable<any[]>;
-  item: FirebaseObjectObservable<any>;
-  constructor(db: AngularFireDatabase) {
-    this.articles = db.list('/artarticle');
-    this.articles.subscribe(snapshot => {
-      snapshot.forEach(ele => {
-        this.is_collapsed_arr.push(true);
-      });
-    });
-    this.item = db.object('/techarticle');
+  constructor(private _myDataService: MyDataService, private _broadcaster: Broadcaster) {
   }
 
   ngOnInit() {
-    
   }
-
-  save(newName: string) {
-    this.item.set({ name: newName });
-  }
-  update(newSize: string) {
-    this.item.update({ size: newSize });
-  }
-  delete() {
-    this.item.remove();
+  getData(type: string) {
+    this._myDataService.getArticleData(type).subscribe(res => {
+      console.log(res);
+    }, error => console.log(error));
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import {Router} from"@angular/router";
-import { SharedModule } from '../shared/shared.module';
 import {Broadcaster} from '../shared/broadcaster.service';
 
 @Component({

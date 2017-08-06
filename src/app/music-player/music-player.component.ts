@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { SharedModule } from '../shared/shared.module';
 import { Broadcaster } from '../shared/broadcaster.service';
 
 @Component({
@@ -17,11 +16,11 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
   name: string;
   artist: string;
   album: string;
+  play_state: string = 'play';
   click_animation: boolean[];
   cover_rotate: boolean;
   toogle_play: boolean;
   is_stop: boolean;
-  play_state: string = 'play';
   rotate_up: boolean;
   rotate_down: boolean;
   slideIn: boolean;
@@ -109,7 +108,6 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
     this.name = song_info['name'];
     this.artist = song_info['artist'];
     this.album = song_info['album'];
-    console.log(this.song_url);
   }
   /* 播放控制 */
   playControll(type, event?) {

@@ -15,10 +15,7 @@ import { Broadcaster } from './shared/broadcaster.service';
 import { ArtAreaComponent } from './art-area/art-area.component';
 import { TechAreaComponent } from './tech-area/tech-area.component';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +27,7 @@ import { environment } from '../environments/environment';
     MusicPlayerComponent,
     ArtAreaComponent,
     TechAreaComponent,
+    LoadingComponent,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -37,9 +35,6 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpModule,
     routing,
-    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
-    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   providers: [Broadcaster],
   bootstrap: [AppComponent]

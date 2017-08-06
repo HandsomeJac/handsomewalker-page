@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,17 +10,19 @@ export class MyDataService {
    }
 
   private _handleUrl(type){
-    let data = {
+    const data = {
       'file': `${type}article.json`
     };
-    let json_data = JSON.stringify(data);
+    const json_data = JSON.stringify(data);
     return json_data;
   }
   
   /* 请求文章数据 */
   getArticleData(type){
-    let json_data = this._handleUrl(type);
-    let _res = this.http.post(this.proxy_url, json_data)
+    const param = new URLSearchParams();
+    param.set('db', 'article_db');
+    param.set('collection', type);
+    const _res = this.http.get(this.proxy_url, {search: param})
     .map((res) => res.json());
     return _res;
   }
