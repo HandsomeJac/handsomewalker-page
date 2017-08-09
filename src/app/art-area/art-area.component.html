@@ -1,5 +1,5 @@
 <div class="animated" [ngClass]="{'fadeInDown': !is_loading}">
-  <div *ngFor="let article of articles | async;let i = index">
+  <div *ngFor="let article of articles;let i = index">
     <p>
       <!-- <button type="button" class="btn btn-outline-primary" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]"
               [attr.aria-expanded]="!is_collapsed_arr[i]" aria-controls="collapse">
