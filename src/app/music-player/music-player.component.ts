@@ -75,7 +75,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
     });
   }
   /* 搜索音乐 */
-  searchMusic(name: string, e) {
+  searchMusic(name: string, e?) {
     let doSearch = () => {
       let song_info_arr = [];
       if (name) {
@@ -99,7 +99,11 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
         );
       }
     };
-    e.keyCode == 13 && doSearch();
+    if (e) {
+      e.keyCode == 13 && doSearch();
+    }else {
+      doSearch();
+    }
   }
   /* 播放音乐 */
   playMusic(song_info) {

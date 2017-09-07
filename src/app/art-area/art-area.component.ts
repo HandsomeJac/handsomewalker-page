@@ -27,7 +27,7 @@ export class ArtAreaComponent implements OnInit {
   getData(type: string): void {
     this._myDataService.getArticleData(type).subscribe(res => {
       if (res['status'] === 200) {
-        this.articles = res['data']['articles'];
+        this.articles = res['data'];
         this.handleCollapse(this.articles);
       }
     }, error => console.debug(error));

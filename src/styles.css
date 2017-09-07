@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html, body{
     background-color: #ddd;
+    height: 100%;
 }
 ::selection, ::selection{
   color:#ddd;background: #333;

@@ -1,6 +1,6 @@
 <div>
   <div style="position: fixed;z-index: 99;" class="animated" [ngClass]="{'slideInLeft': slideIn, 'slideOutLeft': slideOut}">
-    <audio loop #audio>
+    <audio autoplay loop #audio>
       <source [src]="song_url" type="audio/mp3">
     </audio>
     <div class="player-box" style="z-index: 99">
@@ -17,7 +17,7 @@
       <div class="input-group">
         <input (keyup)="searchMusic(search_box_obj.search_content, $event)" [(ngModel)]="search_box_obj.search_content" type="text" class="form-control search" placeholder="Search for...">
         <span class="input-group-btn">
-          <button class="btn btn-default" style="background-color: #444;border-color: #555;color: #ddd;outline: none;" type="button">Go!</button>
+          <button class="btn btn-default" style="background-color: #444;border-color: #555;color: #ddd;outline: none;" type="button" (click)="searchMusic(search_box_obj.search_content)">Go!</button>
         </span>
       </div>
       <div class="song-list" *ngFor="let song_info of song_info_arr;let i = index" (click)="selectMusic(song_info, i)" title="{{song_info.name}}-{{song_info.artist}} | {{song_info.album}}">

@@ -1,10 +1,12 @@
-<div style="height: 400px;">
-  <app-top></app-top>
+<div class="bg">
+  <div style="height: 400px;">
+    <app-top></app-top>
+  </div>
+  <div>
+    <app-music-player></app-music-player>
+  </div>
+  <section style="margin-top: 40px;padding: 0 10px;">
+    <router-outlet></router-outlet>
+  </section>
+  <app-loading [isLoading]="loading"></app-loading>
 </div>
-<div>
-  <app-music-player></app-music-player>
-</div>
-<section style="margin-top: 40px;padding: 0 10px;">
-  <router-outlet></router-outlet>
-</section>
-<app-loading [isLoading]="loading"></app-loading>

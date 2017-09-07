@@ -8,7 +8,7 @@ import { MyDataService } from '../services/my-data.service';
   providers: [MyDataService],
 })
 export class TechAreaComponent implements OnInit {
-  articles: any;
+  articles;
   public is_collapsed_arr = [];
   constructor(private _myDataService: MyDataService) { }
 
