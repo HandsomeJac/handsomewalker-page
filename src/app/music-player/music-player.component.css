@@ -62,7 +62,11 @@
   opacity: 0.3;
 }
 .player-box>span{
+  transition: 0.5s;
   cursor: pointer;
+}
+.player-box span:hover{
+  color: deepskyblue;
 }
 .search{
   border: 1px solid #555;

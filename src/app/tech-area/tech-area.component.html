@@ -3,10 +3,10 @@
     <p>
       <button type="button" class="btn btn-outline-primary" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]"
               [attr.aria-expanded]="!is_collapsed_arr[i]" aria-controls="collapse">
-        【{{article.title}}】&nbsp;&nbsp;发表日期:&nbsp;{{article.time}}
+        【{{article.title}}】&nbsp;&nbsp;发布日期:&nbsp;{{article.time}}
       </button>
     </p>
-    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]">
+    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12">
       <div class="card">
         <div class="card-block" [innerHTML]="article.content">
           
