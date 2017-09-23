@@ -5,7 +5,6 @@ import { MyDataService } from '../services/my-data.service';
   selector: 'app-tech-area',
   templateUrl: './tech-area.component.html',
   styleUrls: ['./tech-area.component.css'],
-  providers: [MyDataService],
 })
 export class TechAreaComponent implements OnInit {
   articles;

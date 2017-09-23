@@ -7,7 +7,7 @@
       </button>
       <!-- <a href="javascript:void(0);" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]" [attr.aria-expanded]="!is_collapsed_arr[i]" aria-controls="collapse">{{article.title}}</a> -->
     </p>
-    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12">
+    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12" style="margin-bottom: 5px;">
       <div class="card">
         <div class="card-block" [innerHTML]="article.content">
           

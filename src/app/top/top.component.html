@@ -10,7 +10,7 @@
             <source src="../../assets/media/code_clip.mp4" type="video/mp4">
         </video>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');" placement="bottom" ngbTooltip="这是主页(^▽^)">
+    <div (click)="route('home')" class="flip-container" ontouchstart="this.classList.toggle('hover');" placement="bottom" ngbTooltip="这是主页(^▽^)">
         <div class="flipper">
         <div class="front">
             <div class="avatar"></div>

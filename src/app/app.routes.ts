@@ -6,6 +6,7 @@ import { TechAreaComponent } from './tech-area/tech-area.component';
 import { Routes } from '@angular/router';
 
 const appRoutes: Routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'art', component: ArtAreaComponent },
     { path: 'tech', component: TechAreaComponent },

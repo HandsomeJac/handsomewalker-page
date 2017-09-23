@@ -6,7 +6,6 @@ import { MyDataService } from '../services/my-data.service';
   selector: 'app-art-area',
   templateUrl: './art-area.component.html',
   styleUrls: ['./art-area.component.css'],
-  providers: [MyDataService],
 })
 
 export class ArtAreaComponent implements OnInit {

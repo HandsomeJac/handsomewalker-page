@@ -1,0 +1,24 @@
+.box{
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+}
+.guitar{
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  margin-left: -180px;
+  width: 360px;
+  height: 113px;
+  background: url('../../../assets/img/guitar.png');
+  background-position: center;
+  background-size: cover;
+}
+.art_input{
+  border-radius: 2px;
+  margin-top: 43px;
+  margin-left: 96px;
+  height: 18px;
+  outline: none;
+  text-indent: 3px;
+}

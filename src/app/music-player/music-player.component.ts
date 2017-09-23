@@ -6,7 +6,6 @@ import { Broadcaster } from '../shared/broadcaster.service';
   selector: 'app-music-player',
   templateUrl: './music-player.component.html',
   styleUrls: ['./music-player.component.css'],
-  providers: [DataService],
 })
 
 export class MusicPlayerComponent implements OnInit, AfterViewInit {

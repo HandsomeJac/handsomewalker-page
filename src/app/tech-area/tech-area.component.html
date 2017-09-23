@@ -6,7 +6,7 @@
         【{{article.title}}】&nbsp;&nbsp;发布日期:&nbsp;{{article.time}}
       </button>
     </p>
-    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12">
+    <div id="collapse{{i}}" [ngbCollapse]="is_collapsed_arr[i]" class="col-xs-12" style="margin-bottom: 5px;">
       <div class="card">
         <div class="card-block" [innerHTML]="article.content">
           
