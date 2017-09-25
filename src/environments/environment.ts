@@ -5,12 +5,5 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyBlZCD-ash0Be7YorZ6CeK3p-DKSCmz55M",
-    authDomain: "handsomewalker-5f8e7.firebaseapp.com",
-    databaseURL: "https://handsomewalker-5f8e7.firebaseio.com",
-    projectId: "handsomewalker-5f8e7",
-    storageBucket: "handsomewalker-5f8e7.appspot.com",
-    messagingSenderId: "470021283062"
-  }
+  API_URL: 'http://127.0.0.1:7777',
 };

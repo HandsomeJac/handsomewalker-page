@@ -1,3 +1,4 @@
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -6,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class DataService {
   private proxy_url;
   constructor(private http: Http) {
-    this.proxy_url = 'http://127.0.0.1:7777';
+    this.proxy_url = environment.API_URL;
    }
 
   private _handleUrl(url){
