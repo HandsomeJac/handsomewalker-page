@@ -25,7 +25,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
   slideIn: boolean;
   slideOut: boolean;
   song_info_arr: object[];
-  search_box_obj: Object = {
+  search_box_obj: any = {
     show: false,
     fadeInDown: false,
     search_content: '',

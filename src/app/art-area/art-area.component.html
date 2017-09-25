@@ -1,4 +1,4 @@
-<div class="animated" [ngClass]="{'fadeInDown': !is_loading}">
+<div class="animated fadeInDown">
   <div *ngFor="let article of articles;let i = index">
     <p>
       <button type="button" class="btn btn-outline-primary" (click)="is_collapsed_arr[i] = !is_collapsed_arr[i]"
